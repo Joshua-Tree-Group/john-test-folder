@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Spinner4</string>
+    <string name="operation_name">SELECT YOUR OPERATION</string>
+    <string-array name="spinner_options">
+        <item>Receiving</item>
+        <item>OS</item>
+        <item>Equipment</item>
+        <item>Shipping</item>
+    </string-array>
+</resources>
