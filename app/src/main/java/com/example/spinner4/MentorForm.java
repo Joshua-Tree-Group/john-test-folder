@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -52,6 +53,19 @@ public class MentorForm extends Activity {
 
         setContentView(R.layout.mentor_form);
 
+        /*we may be able to use this code to create the number of TextViews to match number of production tasks
+        LinearLayout root = (LinearLayout) findViewById(R.id.linear1);
+        TextView[] t = new TextView[10];
+        LinearLayout.LayoutParams dim=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        for(int i=0;i<10;i++)
+        {
+            t[i]=new TextView(this);
+            t[i].setLayoutParams(dim);
+            t[i].setText(mProdTaskOne);
+            root.addView(t[i]);
+        }
+        setContentView(root);
+        */
         //read the data again
 
         readData();
@@ -88,27 +102,27 @@ public class MentorForm extends Activity {
         //fist set of counter buttons
         counterTxt=(TextView)findViewById(R.id.counterTxt);
         minusBtn=(Button)findViewById(R.id.minusBtn);
-        minusBtn.setOnClickListener(clickListener);
+
         plusBtn=(Button)findViewById(R.id.plusBtn);
-        plusBtn.setOnClickListener(clickListener);
+
         resetBtn=(Button)findViewById(R.id.resetBtn);
-        resetBtn.setOnClickListener(clickListener);
+
         //second set of counter buttons
         counterTxt1=(TextView)findViewById(R.id.counterTxt1);
         minusBtn1=(Button)findViewById(R.id.minusBtn1);
-        minusBtn1.setOnClickListener(clickListener);
+
         plusBtn1=(Button)findViewById(R.id.plusBtn1);
-        plusBtn1.setOnClickListener(clickListener);
+
         resetBtn1=(Button)findViewById(R.id.resetBtn1);
-        resetBtn1.setOnClickListener(clickListener);
+
         //third set of counter buttons
         counterTxt2=(TextView)findViewById(R.id.counterTxt2);
         minusBtn2=(Button)findViewById(R.id.minusBtn2);
-        minusBtn2.setOnClickListener(clickListener);
+
         plusBtn2=(Button)findViewById(R.id.plusBtn2);
-        plusBtn2.setOnClickListener(clickListener);
+
         resetBtn2=(Button)findViewById(R.id.resetBtn2);
-        resetBtn2.setOnClickListener(clickListener);
+
 
 
 
@@ -119,15 +133,14 @@ public class MentorForm extends Activity {
     //click listener for button clicks
     //depending on what button was clicked, it will call the corresponding
     //method
+    /*
     private View.OnClickListener clickListener =new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             //v.getId will return the id of the clicked button
             switch (v.getId()){
                 //case that first minus is clicked
-                case R.id.minusBtn:
-                    minusCounter();
-                    break;
+
                 //case that second minus is clicked
                 case R.id.minusBtn1:
                     minusCounter1();
@@ -135,18 +148,14 @@ public class MentorForm extends Activity {
                 case R.id.minusBtn2:
                     minusCounter2();
                     break;
-                case R.id.plusBtn:
-                    plusCounter();
-                    break;
+
                 case R.id.plusBtn1:
                     plusCounter1();
                     break;
                 case R.id.plusBtn2:
                     plusCounter2();
                     break;
-                case R.id.resetBtn:
-                    initCounter();
-                    break;
+
                 case R.id.resetBtn1:
                     initCounter1();
                     break;
@@ -158,21 +167,28 @@ public class MentorForm extends Activity {
     };
 
     //3 methods for FIRST set of counter buttons
-    private void initCounter(){
-        counter=0;
-        counterTxt.setText(counter+"");
+
+*/
+    public void updateCounter(View view){
+        String name = view.getTag().toString();
+
+//make this into switch statement
+        if(name.equals("minus")){
+            counter--;
+            counterTxt.setText(Integer.toString(counter));
+        } else if (name.equals("plus")){
+            counter++;
+            counterTxt.setText(Integer.toString(counter));
+        } else if (name.equals("reset")){
+            counter=0;
+            counterTxt.setText(String.format("%s",counter));
+        }
+
+
+
     }
 
-    private void plusCounter(){
-        counter++;
-        counterTxt.setText(counter+"");
-        System.out.println("this method was called too");
-    }
-
-    private void minusCounter(){
-        counter--;
-        counterTxt.setText(counter+"");
-    }
+/*
     //3 methods for SECOND set of counter buttons
     private void initCounter1(){
         counter1=0;
@@ -203,7 +219,7 @@ public class MentorForm extends Activity {
         counter2--;
         counterTxt2.setText(counter2+"");
     }
-
+*/
     //3 methods used for starting, pausing, and resetting the chronometer https://www.youtube.com/watch?v=RLnb4vVkftc
     public void startChronometer(View view){
         //check if chronometer is running or not

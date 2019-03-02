@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linear1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -7,16 +8,16 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mentoring Form"
+            android:layout_gravity="center"
+            android:text="@string/mentoring_form_title"
             android:textSize="40dp"
-            android:textStyle="bold"
-            android:layout_gravity="center"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -27,11 +28,11 @@
 
 
         <TextView
+            android:id="@+id/operation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Department"
-            android:textSize="30sp"
-            android:id="@+id/operation"/>
+            android:text="@string/department_name"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -41,18 +42,18 @@
         android:padding="20dp">
 
         <TextView
+            android:id="@+id/prodTask1"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="dummy"
-            android:textSize="30dp"
-            android:id="@+id/prodTask1"/>
+            android:textSize="30dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="180dp">
+            android:layout_marginLeft="180dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/counterTxt"
@@ -66,6 +67,8 @@
                 android:id="@+id/minusBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="updateCounter"
+                android:tag="minus"
                 android:text="-"
                 android:textSize="20sp" />
 
@@ -73,6 +76,7 @@
                 android:id="@+id/resetBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:tag="reset"
                 android:text="Reset"
                 android:textSize="20sp" />
 
@@ -80,6 +84,8 @@
                 android:id="@+id/plusBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="updateCounter"
+                android:tag="plus"
                 android:text="+"
                 android:textSize="20sp" />
 
@@ -94,18 +100,18 @@
         android:padding="20dp">
 
         <TextView
+            android:id="@+id/prodTask2"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="dummy"
-            android:textSize="30dp"
-            android:id="@+id/prodTask2"/>
+            android:textSize="30dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="180dp">
+            android:layout_marginLeft="180dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/counterTxt1"
@@ -119,6 +125,8 @@
                 android:id="@+id/minusBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="updateCounter"
+                android:tag="minus"
                 android:text="-"
                 android:textSize="20sp" />
 
@@ -126,6 +134,8 @@
                 android:id="@+id/resetBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="updateCounter"
+                android:tag="reset"
                 android:text="Reset"
                 android:textSize="20sp" />
 
@@ -133,6 +143,8 @@
                 android:id="@+id/plusBtn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="updateCounter"
+                android:tag="plus"
                 android:text="+"
                 android:textSize="20sp" />
 
@@ -147,18 +159,18 @@
         android:padding="20dp">
 
         <TextView
+            android:id="@+id/prodTask3"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="dummy"
-            android:textSize="30dp"
-            android:id="@+id/prodTask3"/>
+            android:textSize="30dp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="180dp">
+            android:layout_marginLeft="180dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/counterTxt2"
@@ -172,6 +184,8 @@
                 android:id="@+id/minusBtn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="updateCounter"
+                android:tag="minus"
                 android:text="-"
                 android:textSize="20sp" />
 
@@ -179,6 +193,8 @@
                 android:id="@+id/resetBtn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="updateCounter"
+                android:tag="reset"
                 android:text="Reset"
                 android:textSize="20sp" />
 
@@ -186,6 +202,8 @@
                 android:id="@+id/plusBtn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="updateCounter"
+                android:tag="plus"
                 android:text="+"
                 android:textSize="20sp" />
 
@@ -200,19 +218,19 @@
         android:layout_marginTop="100dp">
 
         <Chronometer
-        android:id="@+id/chronometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="42dp"
-        android:textSize="40sp" />
+            android:id="@+id/chronometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="42dp"
+            android:textSize="40sp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button12"

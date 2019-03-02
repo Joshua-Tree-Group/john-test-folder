@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Spinner4</string>
     <string name="operation_name">SELECT YOUR OPERATION</string>
+    <string name="mentoring_form_title">Mentoring Form</string>
+    <string name="department_name">Department</string>
     <string-array name="spinner_options">
         <item>Receiving</item>
         <item>OS</item>
