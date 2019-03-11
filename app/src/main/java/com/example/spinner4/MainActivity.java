@@ -1,6 +1,7 @@
 package com.example.spinner4;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +23,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
      String mOperationSelected;
-     String mOperation;
+     operation op;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         final int result = 1;
 
-        changeToMentorForm.putExtra("Operation Selected", mOperationSelected);
+        changeToMentorForm.putExtra("Operation object", op);
 
         //this line calls the intent and executes it, if we want to pass
         //values back from the second activity, we have to use
@@ -129,12 +131,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         if(mOperationSelected.equals(sampleDataList.get(1).getOperation())){
             mOperationSelected=sampleDataList.get(1).getOperation();
             assignSelectedOperation(mOperationSelected);
+
         }else if (mOperationSelected.equals(sampleDataList.get(2).getOperation())){
             mOperationSelected=sampleDataList.get(2).getOperation();
             assignSelectedOperation(mOperationSelected);
+
         }else if(mOperationSelected.equals(sampleDataList.get(3).getOperation())){
             mOperationSelected=sampleDataList.get(3).getOperation();
             assignSelectedOperation(mOperationSelected);
+
         }
 
 
@@ -146,10 +151,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     //this method receives selection from spinner and assigns the
-    //member variable the correct operation selected
+    //operationName attribute to the op object.
     public void assignSelectedOperation(String mOperation){
 
         mOperationSelected=mOperation;
+        op = new operation();
+        op.setOperationName(mOperationSelected);
     }
 }
 
