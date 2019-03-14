@@ -11,7 +11,7 @@ import java.io.Serializable;
 
 public class MentorForm extends FragmentActivity implements Serializable {
     ViewPager viewPager;
-    String mOperationSelected;
+
     operation op;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +34,25 @@ public class MentorForm extends FragmentActivity implements Serializable {
         Intent fromMainActivity = getIntent();
          op = fromMainActivity.getParcelableExtra("Operation object");
 
+
         //printing out the selected operation
         System.out.println(op.operationName + " from mentorForm activity");
+        System.out.println(op.prefferedMethods[1] + " array from mentorForm activity");
         //passing data form activity to fragment_one
         Bundle bundle = new Bundle();
         bundle.putString("operation", op.operationName);
-        //set fragment arguments
-        fragment_one myFrag = new fragment_one();
-        myFrag.setArguments(bundle);
 
+        //set fragment arguments for fragment one
+        fragment_one myFrag1 = new fragment_one();
+        myFrag1.setArguments(bundle);
 
+        //passing data from activity to fragment_two
+        Bundle bundle2 =new Bundle();
+        bundle2.putStringArray("preferred methods",op.prefferedMethods);
+
+        //set fragment arguments fro fragment 2
+        fragment_two myFrag2 =new fragment_two();
+        myFrag2.setArguments(bundle2);
 
 
     }

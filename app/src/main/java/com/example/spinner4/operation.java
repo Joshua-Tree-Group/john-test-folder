@@ -12,10 +12,20 @@ public class operation implements Parcelable {
     String productionTaskOne;
     String productionTaskTwo;
     String productionTaskThree;
+    String prefferedMethods[];
 
     //constructor method
     public operation() {
 
+    }
+
+    public String[] getPrefferedMethods() {
+        return prefferedMethods;
+    }
+
+    public void setPrefferedMethods(String[] prefferedMethods) {
+        this.prefferedMethods = prefferedMethods;
+        System.out.println("this is it "+prefferedMethods[1]);
     }
 
     protected operation(Parcel in) {
@@ -23,6 +33,7 @@ public class operation implements Parcelable {
         productionTaskOne= in.readString();
         productionTaskTwo=in.readString();
         productionTaskThree=in.readString();
+        prefferedMethods=in.createStringArray();
     }
 
     public static final Creator<operation> CREATOR = new Creator<operation>() {
@@ -80,5 +91,6 @@ public class operation implements Parcelable {
         dest.writeString(productionTaskOne);
         dest.writeString(productionTaskTwo);
         dest.writeString(productionTaskThree);
+        dest.writeStringArray(prefferedMethods);
     }
 }

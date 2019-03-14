@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-public class pagerAdapter extends FragmentStatePagerAdapter {
+public class pagerAdapter extends FragmentPagerAdapter {
 
 
     public  pagerAdapter(FragmentManager fm) {
@@ -21,6 +21,7 @@ public class pagerAdapter extends FragmentStatePagerAdapter {
                 return new fragment_two();
             default:
                 break;
+
         }
         return null;
 

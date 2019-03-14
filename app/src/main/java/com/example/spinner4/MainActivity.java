@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +25,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
      String mOperationSelected;
      operation op;
+     String[] receivingMethods=new String[9];
+     String[] equipmentMethods=new String[9];
+     String[] shippingMethods=new String[9];
+     String[] osMethods=new String[9];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //button reference
         Button button=findViewById(R.id.submit_button);
+
 
         //creating the listener for the button
         button.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         final int result = 1;
 
         changeToMentorForm.putExtra("Operation object", op);
+
 
         //this line calls the intent and executes it, if we want to pass
         //values back from the second activity, we have to use
@@ -132,13 +139,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             mOperationSelected=sampleDataList.get(1).getOperation();
             assignSelectedOperation(mOperationSelected);
 
+            assignPreferredMethods(mOperationSelected);
+
         }else if (mOperationSelected.equals(sampleDataList.get(2).getOperation())){
             mOperationSelected=sampleDataList.get(2).getOperation();
             assignSelectedOperation(mOperationSelected);
 
+            assignPreferredMethods(mOperationSelected);
+
         }else if(mOperationSelected.equals(sampleDataList.get(3).getOperation())){
             mOperationSelected=sampleDataList.get(3).getOperation();
             assignSelectedOperation(mOperationSelected);
+
+            assignPreferredMethods(mOperationSelected);
 
         }
 
@@ -157,6 +170,65 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         mOperationSelected=mOperation;
         op = new operation();
         op.setOperationName(mOperationSelected);
+    }
+
+    public void assignPreferredMethods(String value){
+
+
+        receivingMethods[0] = "Make sure dock is clear before receiving trailer";
+        receivingMethods[1] = "Wear safety googles when operating power equipment";
+        receivingMethods[2] = "Double stack as many pallets as possible";
+        receivingMethods[3] = "Use knife to cut stack";
+        receivingMethods[4] = "Place only one dot sticker per pallet";
+        receivingMethods[5] = "Separate SKUS when placing in lane";
+        receivingMethods[6] = "Have 2 pallet stacks outide the dock door";
+        receivingMethods[7] = "Breakdown load as you unload it";
+        receivingMethods[8] = "";
+
+        equipmentMethods[0]="In putaways, scan the pallet label before placing forks in pallet.";
+        equipmentMethods[1]="Exit pallet with forks pointing towards the next putaway pallet";
+        equipmentMethods[2]="Do not corner to fast";
+        equipmentMethods[3]="Clean as you go";
+        equipmentMethods[4]="Check aisles for remaining putaways after completing replenishments";
+        equipmentMethods[5]="Clean work area 15 min prior to end of day";
+        equipmentMethods[6]="Drive back to startup area so next shift can find machines easily";
+        equipmentMethods[7]="Sign out of system";
+        equipmentMethods[8]="";
+
+        shippingMethods[0]="Contact manager if you are constantly waiting for work";
+        shippingMethods[1]="Do not make multiple attempts to load a case in the same spot";
+        shippingMethods[2]="Place heavy items on the floor below waist";
+        shippingMethods[3]="Do not have more than 2 people per trailer";
+        shippingMethods[4]="Do not pause conveyor";
+        shippingMethods[5]="Keep your area clean and organized as you load the trailer";
+        shippingMethods[6]="Use load sheet to review high and tight";
+        shippingMethods[7]="Stack cases all the way across, avoid column stacking";
+        shippingMethods[8]="Use a step stool to stack freight on top level";
+
+        osMethods[0]="Tie a trash bag to your pouch";
+        osMethods[1]="Make accurate throws to the belt to eliminate double handling";
+        osMethods[2]="Unwrap entire pallet";
+        osMethods[3]="Always layer pick cases";
+        osMethods[4]="Use 2-3 wraps when closing up open cases";
+        osMethods[5]="Use time productively during line stops";
+        osMethods[6]="Place label bricks inside of pouch";
+        osMethods[7]="Label multiple cases at once and move as many as you can pick up";
+        osMethods[8]="Avoid team picks at the same location";
+
+        if (value.equals(sampleDataList.get(1).getOperation())){
+            op.setPrefferedMethods(receivingMethods);
+            System.out.println("it worked "+op.prefferedMethods[1]);
+        }else if (value.equals(sampleDataList.get(2).getOperation())) {
+            op.setPrefferedMethods(osMethods);
+
+        }else if (value.equals(sampleDataList.get(3).getOperation())){
+            op.setPrefferedMethods(equipmentMethods);
+        }else if (value.equals(sampleDataList.get(4).getOperation())){
+            op.setPrefferedMethods(shippingMethods);
+        }else{
+            System.out.println("it did not work");
+        }
+
     }
 }
 
