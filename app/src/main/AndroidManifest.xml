@@ -19,6 +19,12 @@
         <activity android:name=".MentorForm"
             android:label="Mentor Form"
             android:theme="@style/AppTheme"/>
+        <activity android:name=".summaryPage"
+            android:label="Summary Page"
+            android:theme="@style/AppTheme"
+            android:parentActivityName=".MentorForm">
+
+        </activity>
     </application>
 
 </manifest>

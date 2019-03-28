@@ -29,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
      String[] equipmentMethods=new String[9];
      String[] shippingMethods=new String[9];
      String[] osMethods=new String[9];
+     double[] goalTime1=new double[3];
+     double[] goalTime2=new double[3];
+     double[] goalTime3=new double[3];
+     double[] goalTime4=new double[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //button reference
         Button button=findViewById(R.id.submit_button);
+
+        //call method to set goal times
+
+
+
 
 
         //creating the listener for the button
@@ -140,18 +149,21 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             assignSelectedOperation(mOperationSelected);
 
             assignPreferredMethods(mOperationSelected);
+            goalTimes(mOperationSelected);
 
         }else if (mOperationSelected.equals(sampleDataList.get(2).getOperation())){
             mOperationSelected=sampleDataList.get(2).getOperation();
             assignSelectedOperation(mOperationSelected);
 
             assignPreferredMethods(mOperationSelected);
+            goalTimes(mOperationSelected);
 
         }else if(mOperationSelected.equals(sampleDataList.get(3).getOperation())){
             mOperationSelected=sampleDataList.get(3).getOperation();
             assignSelectedOperation(mOperationSelected);
 
             assignPreferredMethods(mOperationSelected);
+            goalTimes(mOperationSelected);
 
         }
 
@@ -225,6 +237,38 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             op.setPrefferedMethods(equipmentMethods);
         }else if (value.equals(sampleDataList.get(4).getOperation())){
             op.setPrefferedMethods(shippingMethods);
+        }else{
+            System.out.println("it did not work");
+        }
+
+    }
+
+    public void goalTimes( String value){
+        //goal times for first operation
+        goalTime1[0]=1.2;
+        goalTime1[1]=1.4;
+        goalTime1[2]=1.6;
+        //goal times for second operation
+        goalTime2[0]=1.5;
+        goalTime2[1]=1.1;
+        goalTime2[2]=1.9;
+        //goal times for third operation
+        goalTime3[0]=1.8;
+        goalTime3[1]=1.4;
+        goalTime3[2]=1.2;
+        //goal times for fourth operation
+        goalTime4[0]=1.4;
+        goalTime4[1]=1.2;
+        goalTime4[2]=1.4;
+
+        if (value.equals(sampleDataList.get(1).getOperation())){
+            op.setGoalTimes(goalTime1);
+        }else if (value.equals(sampleDataList.get(2).getOperation())) {
+            op.setGoalTimes(goalTime2);
+        }else if (value.equals(sampleDataList.get(3).getOperation())){
+            op.setGoalTimes(goalTime3);
+        }else if (value.equals(sampleDataList.get(4).getOperation())){
+            op.setGoalTimes(goalTime4);
         }else{
             System.out.println("it did not work");
         }

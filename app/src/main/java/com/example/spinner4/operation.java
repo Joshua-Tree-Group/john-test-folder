@@ -13,10 +13,30 @@ public class operation implements Parcelable {
     String productionTaskTwo;
     String productionTaskThree;
     String prefferedMethods[];
+    double goalTimes1[];
 
     //constructor method
     public operation() {
 
+    }
+
+
+    public double[] getGoalTimes1() {
+        return goalTimes1;
+    }
+
+    public void setGoalTimes1(double[] goalTimes1) {
+        this.goalTimes1 = goalTimes1;
+    }
+
+
+
+    public double[] getGoalTimes() {
+        return goalTimes1;
+    }
+
+    public void setGoalTimes(double[] goalTimes) {
+        this.goalTimes1 = goalTimes;
     }
 
     public String[] getPrefferedMethods() {
@@ -34,6 +54,8 @@ public class operation implements Parcelable {
         productionTaskTwo=in.readString();
         productionTaskThree=in.readString();
         prefferedMethods=in.createStringArray();
+        goalTimes1=in.createDoubleArray();
+
     }
 
     public static final Creator<operation> CREATOR = new Creator<operation>() {
@@ -92,5 +114,7 @@ public class operation implements Parcelable {
         dest.writeString(productionTaskTwo);
         dest.writeString(productionTaskThree);
         dest.writeStringArray(prefferedMethods);
+        dest.writeDoubleArray(goalTimes1);
+
     }
 }
