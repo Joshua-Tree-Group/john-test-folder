@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container2">
@@ -39,6 +40,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/topPref1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -56,6 +58,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/topPref2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -73,6 +76,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/topPref3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -103,6 +107,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/pref1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -120,6 +125,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/pref2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -137,6 +143,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/pref3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -167,6 +174,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/adv1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -184,6 +192,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/adv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -201,6 +210,7 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/adv3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
@@ -232,10 +242,13 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/pace1"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:onClick="selectedItem" />
 
                         <TextView
+                            android:id="@+id/paceTxt1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Poor, unmotivated pace." />
@@ -248,10 +261,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/pace2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/paceTxt2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Unmotivated pace" />
@@ -264,10 +279,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/pace3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/paceTxt3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Slightly unmotivated pace" />
@@ -280,10 +297,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/pace4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/paceTxt4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Solid, consistent motivated pace" />
@@ -296,10 +315,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/pace5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/paceTxt5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Extremely motivated, consistent pace" />
@@ -325,10 +346,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/util1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/utilTxt1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Consistently unprepared/distracted." />
@@ -341,10 +364,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/util2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/utilTxt2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Distracted, 5+ occurrences of unproductive times." />
@@ -357,10 +382,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/util3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/utilTxt3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Focused but 3-4 occurrences of unproductive times." />
@@ -373,10 +400,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/util4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/utilTxt4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="On task and focused. 1-2 brief unproductive occurrences." />
@@ -389,10 +418,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/util5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/utilTxt5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Always on task and working." />
@@ -419,10 +450,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/methods1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/methodsTxt1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Minimal preferred method used, clear reason for underperf." />
@@ -435,10 +468,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/methods2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/methodsTxt2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Inconsistent preferred methods." />
@@ -451,10 +486,12 @@
                         android:orientation="horizontal">
 
                         <CheckBox
+                            android:id="@+id/methods3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content" />
 
                         <TextView
+                            android:id="@+id/methodsTxt3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Miss a few preferred method" />

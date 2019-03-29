@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import java.nio.charset.Charset;
-
 public class summaryPage extends AppCompatActivity {
     TextView earnedTime;
     TextView onStandardTime;
@@ -32,7 +30,10 @@ public class summaryPage extends AppCompatActivity {
         performance=findViewById(R.id.performanceTxt);
         onStandardTime=findViewById(R.id.onStandardTxt);
         earnedTime=findViewById(R.id.earnedTimeTxt);
-
+        pace=findViewById(R.id.paceTxt1);
+        utilization=findViewById(R.id.utilTxt);
+        methods=findViewById(R.id.mthdsTxt);
+        usedMethods=findViewById(R.id.methodsArrayTxt);
 
         //get intent
         Intent intent = getIntent();
@@ -46,6 +47,12 @@ public class summaryPage extends AppCompatActivity {
         performance.setText(intent.getCharSequenceExtra("performance"));
         onStandardTime.setText(intent.getCharSequenceExtra("on standard time"));
         earnedTime.setText(intent.getCharSequenceExtra("earned time"));
+        pace.setText(intent.getCharSequenceExtra("pace"));
+        utilization.setText(intent.getCharSequenceExtra("utilization"));
+        methods.setText(intent.getCharSequenceExtra("method"));
+        usedMethods.setText(intent.getCharSequenceExtra("methods array"));
+
+
 
 
 

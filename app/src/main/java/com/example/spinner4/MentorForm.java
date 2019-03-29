@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 
 public class MentorForm extends FragmentActivity implements Serializable, fragment_one.FragmentAListener, com.example.spinner4.fragment_two.FragmentBListner {
@@ -26,6 +27,10 @@ public class MentorForm extends FragmentActivity implements Serializable, fragme
     String mPerformance;
     String mEarnedTime;
     String mOnStandardTime;
+    ArrayList selection;
+    String mPace;
+    String mUtilization;
+    String mMethods;
 
     operation op;
     @Override
@@ -84,7 +89,8 @@ public class MentorForm extends FragmentActivity implements Serializable, fragme
 
     @Override
     public void onInputBSent(CharSequence input, CharSequence input2, CharSequence input3, CharSequence input4, CharSequence input5,
-                             CharSequence input6,CharSequence input7, CharSequence input8, CharSequence input9) {
+                             CharSequence input6, CharSequence input7, CharSequence input8, CharSequence input9, ArrayList input10,String input11,
+                             String input12, String input13) {
         Toast.makeText(getApplication(),"THIS IS WHAT WAS PASSED: "+input+""+input2,Toast.LENGTH_LONG).show();
 
         improvements1=input;
@@ -96,6 +102,10 @@ public class MentorForm extends FragmentActivity implements Serializable, fragme
         feedback1=input7;
         feedback2=input8;
         feedback3=input9;
+        selection=input10;
+        mPace=input11;
+        mUtilization=input12;
+        mMethods=input13;
 
         String totImprovements=improvements1+", "+improvements2+", "+improvements3;
         String totDidWell=didWell1+", "+didWell2+", "+didWell3;
@@ -108,6 +118,11 @@ public class MentorForm extends FragmentActivity implements Serializable, fragme
         intent.putExtra("performance",mPerformance);
         intent.putExtra("earned time", mEarnedTime);
         intent.putExtra("on standard time", mOnStandardTime);
+        intent.putExtra("methods array",""+selection);
+        intent.putExtra("pace",mPace);
+        intent.putExtra("utilization",mUtilization);
+        intent.putExtra("method",mMethods);
+
 
 
         startActivity(intent);

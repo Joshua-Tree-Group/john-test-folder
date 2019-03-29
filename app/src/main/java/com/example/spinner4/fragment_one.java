@@ -30,6 +30,7 @@ import java.util.List;
 
 public class fragment_one extends Fragment {
     DecimalFormat percentage = new DecimalFormat("###.#%");
+    DecimalFormat minutes = new DecimalFormat("####.##");
     public String fragOneOperationSelected;
     private Chronometer chronometer;
     private boolean running;
@@ -300,9 +301,21 @@ public class fragment_one extends Fragment {
             //assign the performanceCalc textview with the calculation value
             performanceCalculation.setText(performanceCalc);
 
+              Double totSecondsMin  = Double.valueOf(totSeconds);
+              System.out.println("TOT SECONDS MIN"+totSecondsMin);
+
+
+              Double totSecondsMinToMin= totSecondsMin/60;
+
+              String totSecondsMinToMinString= minutes.format(totSecondsMinToMin);
+
+            System.out.println("THIS IS THE TOT SECONDS IN MINUTES: "+totSeconds);
+            totTimeEarned=(totTimeEarned/60);
+            System.out.println("THIS IS THE TOT TIME EARNED IN MINUTES: "+totTimeEarned);
+
             CharSequence sendCalculation = performanceCalculation.getText();
             //this information will be sent to whoever implements this interface
-            listener.onInputASent(sendCalculation, totTimeEarned.toString(), String.valueOf(totSeconds));
+            listener.onInputASent(sendCalculation, totTimeEarned.toString(), totSecondsMinToMinString);
 
 
 
