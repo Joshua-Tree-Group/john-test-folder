@@ -1,0 +1,5 @@
+operation,prod1,prod2,prod3
+Receiving,pallet,trailer start,trailer end
+OS,small case,avg case,large case
+Equipment,location,pallet,labels
+Shipping,case,wave,additional door
