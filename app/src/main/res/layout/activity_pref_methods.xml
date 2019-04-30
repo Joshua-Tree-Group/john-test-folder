@@ -233,97 +233,44 @@
                         android:layout_height="wrap_content"
                         android:text="Pace"
                         android:textSize="30dp" />
-
-                    <LinearLayout
+                    <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:id="@+id/radioGroup">
 
-                        <CheckBox
-                            android:id="@+id/pace1"
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:onClick="selectedItem" />
-
-                        <TextView
-                            android:id="@+id/paceTxt1"
+                            android:text="Poor, unmotivated pace"
+                            android:id="@+id/pace_one" />
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Poor, unmotivated pace." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/pace2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/paceTxt2"
+                            android:text="Unmotivated pace"
+                            android:id="@+id/pace_two"
+                            android:onClick="checkedButton1"/>
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Unmotivated pace" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/pace3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/paceTxt3"
+                            android:text="Slightly unmotivated pace"
+                            android:id="@+id/pace_three"
+                            android:onClick="checkedButton1"/>
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Slightly unmotivated pace" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/pace4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/paceTxt4"
+                            android:text="Solid, consistent motivated pace"
+                            android:id="@+id/pace_four"
+                            android:onClick="checkedButton1"/>
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Solid, consistent motivated pace" />
+                            android:text="Extremely motivated, consistent pace"
+                            android:id="@+id/pace_five"
+                            android:onClick="checkedButton1"/>
 
-                    </LinearLayout>
+                    </RadioGroup>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
 
-                        <CheckBox
-                            android:id="@+id/pace5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/paceTxt5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Extremely motivated, consistent pace" />
-
-                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -337,96 +284,45 @@
                         android:layout_height="wrap_content"
                         android:text="Utilization"
                         android:textSize="30dp" />
-
-                    <LinearLayout
+                    <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:id="@+id/radioGroup2">
 
-                        <CheckBox
-                            android:id="@+id/util1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/utilTxt1"
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Consistently unprepared/distracted." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/util2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/utilTxt2"
+                            android:text="Consistently unprepared/distracted"
+                            android:id="@+id/methods_one"
+                            android:onClick="checkedButton2"/>
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Distracted, 5+ occurrences of unproductive times." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/util3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/utilTxt3"
+                            android:text="Distracted, 5+ occurrences of unproductive times"
+                            android:id="@+id/methods_two"
+                            android:onClick="checkedButton2"/>
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Focused but 3-4 occurrences of unproductive times." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/util4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/utilTxt4"
+                            android:text="Focused but 3-4 occurrences of unproductive times"
+                            android:id="@+id/methods_three"
+                            android:onClick="checkedButton2"/>
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="On task and focused. 1-2 brief unproductive occurrences." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/util5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/utilTxt5"
+                            android:text="On task and focused. 1-2 brief unproductive occurrences"
+                            android:id="@+id/methods_four"
+                            android:onClick="checkedButton2"/>
+                        <RadioButton
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Always on task and working." />
+                            android:text="Always on task and working"
+                            android:id="@+id/methods_five"
+                            android:onClick="checkedButton2"/>
 
-                    </LinearLayout>
+                    </RadioGroup>
+
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -441,94 +337,43 @@
                         android:layout_height="wrap_content"
                         android:text="Methods"
                         android:textSize="30dp" />
-
-                    <LinearLayout
+                    <RadioGroup
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:id="@+id/radioGroup3">
 
-                        <CheckBox
-                            android:id="@+id/methods1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/methodsTxt1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Minimal preferred method used, clear reason for underperf." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/methods2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/methodsTxt2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Inconsistent preferred methods." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <CheckBox
-                        android:id="@+id/methods3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-
-                    <TextView
-                        android:id="@+id/methodsTxt3"
+                        android:text="Minimal preferred method used, clear reason for under-performance"
+                        android:id="@+id/util_one"
+                        android:onClick="checkedButton3"/>
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Focused but 3-4 occurences of unproductive time" />
-
-                </LinearLayout>
-                    <LinearLayout
+                        android:text="Inconsistent preferred methods"
+                        android:id="@+id/util_two"
+                        android:onClick="checkedButton3"/>
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <CheckBox
-                            android:id="@+id/methods4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/methodsTxt4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Consistent use of preferred methods" />
-
-                    </LinearLayout>
-                    <LinearLayout
+                        android:text="3-4 instances of not using preferred methods"
+                        android:id="@+id/util_three"
+                        android:onClick="checkedButton3"/>
+                    <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:text="Consistent use of preferred methods"
+                        android:id="@+id/util_four"
+                        android:onClick="checkedButton3"/>
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Consistently uses preferred methods, and advanced methods"
+                        android:id="@+id/util_five"
+                        android:onClick="checkedButton3"/>
+                    </RadioGroup>
 
-                        <CheckBox
-                            android:id="@+id/methods5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content" />
-
-                        <TextView
-                            android:id="@+id/methodsTxt5"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Consistently uses preferred methods, and advanced methods" />
-
-                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -636,6 +481,19 @@
                         android:textSize="20dp">
 
                     </EditText>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="General Notes"
+                        android:textSize="30dp"></TextView>
+                    <EditText
+                        android:id="@+id/notes"
+                        android:layout_width="600dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp">
+
+                    </EditText>
+
 
                     <Button
                         android:layout_width="wrap_content"

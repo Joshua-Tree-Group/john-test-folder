@@ -67,12 +67,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginBottom="19dp"
         android:text="Oportunities to improve: "
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/utilTxt" />
+        app:layout_constraintBottom_toTopOf="@+id/didNotDoWellTxt"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView17"
@@ -91,12 +91,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="11dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginBottom="119dp"
         android:text="Associate feedback:"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/didWellText" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
@@ -197,32 +197,32 @@
     <TextView
         android:id="@+id/didNotDoWellTxt"
         android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_height="70dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="51dp"
+        android:layout_marginTop="136dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="136dp"
         android:text="TextView"
         android:textColor="#01579B"
-        app:layout_constraintBottom_toBottomOf="@+id/textView17"
+        app:layout_constraintBottom_toTopOf="@+id/textView20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView16" />
+        app:layout_constraintTop_toTopOf="@+id/textView14" />
 
     <TextView
         android:id="@+id/didWellText"
         android:layout_width="0dp"
-        android:layout_height="72dp"
+        android:layout_height="73dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="168dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="89dp"
+        android:layout_marginBottom="50dp"
         android:text="TextView"
         android:textColor="#01579B"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/textView20"
+        app:layout_constraintEnd_toStartOf="@+id/saveSession"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView16" />
+        app:layout_constraintTop_toBottomOf="@+id/didNotDoWellTxt" />
 
     <TextView
         android:id="@+id/feedbackTxt"
@@ -230,12 +230,12 @@
         android:layout_height="72dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="39dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="40dp"
         android:text="TextView"
         android:textColor="#01579B"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/newSession"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView20" />
 
@@ -298,5 +298,29 @@
         android:text="minutes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
+
+    <Button
+        android:id="@+id/saveSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="59dp"
+        android:text="Save Session"
+        app:layout_constraintBottom_toTopOf="@+id/newSession"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/didWellText"
+        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+    <Button
+        android:id="@+id/newSession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="64dp"
+        android:text="New Session"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/feedbackTxt" />
 
 </android.support.constraint.ConstraintLayout>

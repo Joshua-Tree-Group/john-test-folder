@@ -2,8 +2,11 @@ package com.example.dynamicmentorapp;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
@@ -17,8 +20,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,6 +36,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -37,6 +46,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String []prefMethods=new String[0];
     Button submitBtn;
     Spinner spinner;
+    EditText associateName;
+    EditText mentorName;
+    EditText idNumber;
+    String nameMentor;
+    String idAssociate;
     ConstraintLayout myLayout;
     String operationSelected;
     Button load;
@@ -44,6 +58,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     String inputHolder;
     File fileHolder;
     File fileHolder2;
+    String name;
+    TextView dateText;
+    DatePickerDialog.OnDateSetListener dateSetListener;
+    String yearString;
+    String monthString;
+    String dayString;
+    String dateString;
+    String dateDisplayString;
+    int year;
+    int month;
+    int day;
+    int j=0;
+
     int i=0;
     private static final int PERMISSION_REQUEST_STORAGE=1000;
     private static final int READ_REQUEST_CODE=42;
@@ -57,6 +84,60 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         submitBtn=findViewById(R.id.startBtn);
         spinner=findViewById(R.id.spinner);
         myLayout=findViewById(R.id.myLayout);
+        associateName= findViewById(R.id.associateName);
+        dateText=findViewById(R.id.dateText);
+        mentorName= findViewById(R.id.mentorName);
+        idNumber= findViewById(R.id.idNumber);
+
+
+        dateText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(j>=1){
+                    j=0;
+                }
+
+                Calendar cal = Calendar.getInstance();
+                 year =cal.get(Calendar.YEAR);
+                 month =cal.get(Calendar.MONTH);
+                  day =cal.get(Calendar.DAY_OF_MONTH);
+
+                  dateString=month+1+"."+day+"."+year;
+
+                  System.out.println("Date before listener: "+dateString);
+
+
+                DatePickerDialog dialog = new DatePickerDialog(MainActivity.this,
+                        android.R.style.Theme_Black,
+                        dateSetListener,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+                dateSetListener = new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                        month = month+1;
+                        yearString = Integer.toString(year);
+                        monthString=Integer.toString(month);
+                        dayString=Integer.toString(dayOfMonth);
+                        dateDisplayString=monthString+"/"+dayString+"/"+yearString;
+                        dateString=monthString+"."+ dayString+"."+yearString;
+
+                        System.out.println("the date is: "+dateString);
+
+                    }
+
+                };
+
+
+
+
+            }
+
+        });
 
 
         //request permission (new)
@@ -73,7 +154,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View v) {
                 prefferedMethodReader("Download/pref.txt");
+                name = associateName.getText().toString();
+                nameMentor = mentorName.getText().toString();
+                idAssociate=idNumber.getText().toString();
                 activityChanger();
+
+                Toast.makeText(MainActivity.this, ""+name, Toast.LENGTH_SHORT).show();
             }
         });
         //read data from csv
@@ -249,6 +335,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         changeToSecondActivity.putExtra("production tasks",productionTasks);
         changeToSecondActivity.putExtra("goaltimes",goalTimes);
         changeToSecondActivity.putExtra("pref methods",prefMethods);
+        changeToSecondActivity.putExtra("associate",name);
+        changeToSecondActivity.putExtra("date",dateString);
+        changeToSecondActivity.putExtra("mentor name",nameMentor);
+        changeToSecondActivity.putExtra("id",idAssociate);
         startActivityForResult(changeToSecondActivity,result);
     }
     //read contents of file
@@ -375,6 +465,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         String line;
         File file = new File(Environment.getExternalStorageDirectory(),input);
         BufferedReader br2 = new BufferedReader(new FileReader(file));
+
 
         while((line = br2.readLine()) !=null){
             //creating an array of strings called tokens every time the

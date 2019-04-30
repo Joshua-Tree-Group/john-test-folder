@@ -104,9 +104,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
         android:layout_marginBottom="52dp"
-        android:text="RESTART"
+        android:text="RESET"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/calculateBtn"
         app:layout_constraintStart_toEndOf="@+id/pauseBtn" />
@@ -116,8 +115,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:text="PAUSE"
+        android:text="STOP"
         app:layout_constraintBaseline_toBaselineOf="@+id/restartBtn"
         app:layout_constraintEnd_toStartOf="@+id/restartBtn"
         app:layout_constraintStart_toEndOf="@+id/startBtn" />

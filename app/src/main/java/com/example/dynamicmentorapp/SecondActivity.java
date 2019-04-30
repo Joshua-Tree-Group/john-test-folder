@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -30,6 +34,11 @@ public class SecondActivity extends FragmentActivity implements MentorFormFragme
     CharSequence feedback1;
     CharSequence feedback2;
     CharSequence feedback3;
+    String name;
+    String date;
+    String nameMentor;
+    String idAssociate;
+    String extraNotes;
 
     @Override
     protected void onCreate( Bundle savedInstanceState) {
@@ -52,12 +61,21 @@ public class SecondActivity extends FragmentActivity implements MentorFormFragme
         Intent fromMainActivity=getIntent();
 
         operation=fromMainActivity.getStringExtra("operation");
-
         prodTasks=fromMainActivity.getStringArrayExtra("production tasks");
-
         goalTimes=fromMainActivity.getStringArrayExtra("goaltimes");
-
         prefMethods=fromMainActivity.getStringArrayExtra("pref methods");
+        name=fromMainActivity.getStringExtra("associate");
+        date= fromMainActivity.getStringExtra("date");
+        nameMentor=fromMainActivity.getStringExtra("mentor name");
+        idAssociate=fromMainActivity.getStringExtra("id");
+
+
+
+
+        System.out.println("made it here: "+date);
+
+
+
 
 
 
@@ -78,6 +96,7 @@ public class SecondActivity extends FragmentActivity implements MentorFormFragme
 
     }
 
+
     @Override
     public void onInputSent(CharSequence input, CharSequence input2, CharSequence input3) {
         mPerformance=input.toString();
@@ -86,7 +105,7 @@ public class SecondActivity extends FragmentActivity implements MentorFormFragme
     }
 
     @Override
-    public void onInputSent(CharSequence input, CharSequence input2, CharSequence input3, CharSequence input4, CharSequence input5, CharSequence input6, CharSequence input7, CharSequence input8, CharSequence input9, ArrayList input10, String input11, String input12, String input13) {
+    public void onInputSent(CharSequence input, CharSequence input2, CharSequence input3, CharSequence input4, CharSequence input5, CharSequence input6, CharSequence input7, CharSequence input8, CharSequence input9, ArrayList input10, String input11, String input12, String input13,String input14) {
         improvements1=input.toString();
         improvements2=input2.toString();
         improvements3=input3.toString();
@@ -100,6 +119,19 @@ public class SecondActivity extends FragmentActivity implements MentorFormFragme
         mPace=input11;
         mUtilization=input12;
         mMethods=input13;
+        extraNotes = input14;
+
+        RadioGroup radioGroup1;
+        RadioGroup radioGroup2;
+        RadioGroup radioGroup3;
+
+        RadioButton radioButton1;
+        RadioButton radioButton2;
+        RadioButton radioButton3;
+
+        int radioId1;
+        int radioId2;
+        int radioId3;
 
         //create strings combinind everything
 
@@ -119,7 +151,17 @@ public class SecondActivity extends FragmentActivity implements MentorFormFragme
         intent.putExtra("pace",mPace);
         intent.putExtra("utilization",mUtilization);
         intent.putExtra("method",mMethods);
+        intent.putExtra("associate", name);
+        intent.putExtra("operation",operation);
+        intent.putExtra("date",date);
+        intent.putExtra("mentor name",nameMentor);
+        intent.putExtra("id",idAssociate);
+        intent.putExtra("extra notes",extraNotes);
+
+        System.out.println("it made it to the second activity: "+name);
 
         startActivity(intent);
     }
+
+
 }

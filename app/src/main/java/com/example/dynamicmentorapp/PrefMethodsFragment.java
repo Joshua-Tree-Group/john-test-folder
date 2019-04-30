@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
@@ -38,22 +41,7 @@ public class PrefMethodsFragment extends Fragment {
 
     //Pace txtViews
     TextView paceTxt1;
-    TextView paceTxt2;
-    TextView paceTxt3;
-    TextView paceTxt4;
-    TextView paceTxt5;
-    //utilization txtViews
-    TextView utilTxt1;
-    TextView utilTxt2;
-    TextView utilTxt3;
-    TextView utilTxt4;
-    TextView utilTxt5;
-    //methods txtViews
-    TextView methodsTxt1;
-    TextView methodsTxt2;
-    TextView methodsTxt3;
-    TextView methodsTxt4;
-    TextView methodsTxt5;
+
     //Summary button
     Button summary;
 
@@ -69,6 +57,8 @@ public class PrefMethodsFragment extends Fragment {
     EditText feedback1;
     EditText feedback2;
     EditText feedback3;
+
+    EditText extraNotes;
 
     String mPace;
     String mUtilization;
@@ -98,6 +88,37 @@ public class PrefMethodsFragment extends Fragment {
     CheckBox methods2;
     CheckBox methods3;
 
+    String notes;
+    RadioGroup radioGroup1;
+    RadioGroup radioGroup2;
+    RadioGroup radioGroup3;
+
+    RadioButton radioButton1;
+    RadioButton radioButton2;
+    RadioButton radioButton3;
+
+    int radioId1;
+    int radioId2;
+    int radioId3;
+
+    RadioButton radioButonOne;
+    RadioButton radioButonTwo;
+    RadioButton radioButonThree;
+    RadioButton radioButonFour;
+    RadioButton radioButonFive;
+    RadioButton radioButonSix;
+    RadioButton radioButonSeven;
+    RadioButton radioButonEight;
+    RadioButton radioButonNine;
+    RadioButton radioButonTen;
+    RadioButton radioButoneleven;
+    RadioButton radioButonTwelve;
+    RadioButton radioButonThirteen;
+    RadioButton radioButonFourteen;
+    RadioButton radioButonFifteen;
+
+
+
     //fragment listener
     private prefMethodsFragmentListener listener;
 
@@ -106,7 +127,7 @@ public class PrefMethodsFragment extends Fragment {
     public interface prefMethodsFragmentListener{
         void onInputSent(CharSequence input, CharSequence input2, CharSequence input3, CharSequence input4,
                          CharSequence input5, CharSequence input6, CharSequence input7, CharSequence input8, CharSequence input9,
-                         ArrayList input10, String input11, String input12, String input13);
+                         ArrayList input10, String input11, String input12, String input13,String input14);
     }
 
 
@@ -132,24 +153,13 @@ public class PrefMethodsFragment extends Fragment {
         am2=fragView.findViewById(R.id.am2);
         am3=fragView.findViewById(R.id.am3);
 
+        extraNotes=fragView.findViewById(R.id.notes);
+
         //set pace texts
         paceTxt1= fragView.findViewById(R.id.paceTxt1);
-        paceTxt2= fragView.findViewById(R.id.paceTxt2);
-        paceTxt3= fragView.findViewById(R.id.paceTxt3);
-        paceTxt4= fragView.findViewById(R.id.paceTxt4);
-        paceTxt5= fragView.findViewById(R.id.paceTxt5);
+
         //set util texts
-        utilTxt1=fragView.findViewById(R.id.utilTxt1);
-        utilTxt2=fragView.findViewById(R.id.utilTxt2);
-        utilTxt3=fragView.findViewById(R.id.utilTxt3);
-        utilTxt4=fragView.findViewById(R.id.utilTxt4);
-        utilTxt5=fragView.findViewById(R.id.utilTxt5);
-        //set methods texts
-        methodsTxt1=fragView.findViewById(R.id.methodsTxt1);
-        methodsTxt2=fragView.findViewById(R.id.methodsTxt2);
-        methodsTxt3=fragView.findViewById(R.id.methodsTxt3);
-        methodsTxt4=fragView.findViewById(R.id.methodsTxt4);
-        methodsTxt5=fragView.findViewById(R.id.methodsTxt5);
+
 
         //set texts
         tpm1.setText(prefMethods[0]);
@@ -190,21 +200,143 @@ public class PrefMethodsFragment extends Fragment {
         adv2=fragView.findViewById(R.id.adv2);
         adv3=fragView.findViewById(R.id.adv3);
 
-        pace1=fragView.findViewById(R.id.pace1);
-        pace2=fragView.findViewById(R.id.pace2);
-        pace3=fragView.findViewById(R.id.pace3);
-        pace4=fragView.findViewById(R.id.pace4);
-        pace5=fragView.findViewById(R.id.pace5);
 
-        util1=fragView.findViewById(R.id.util1);
-        util2=fragView.findViewById(R.id.util2);
-        util3=fragView.findViewById(R.id.util3);
-        util4=fragView.findViewById(R.id.util4);
-        util5=fragView.findViewById(R.id.util5);
 
-        methods1=fragView.findViewById(R.id.methods1);
-        methods2=fragView.findViewById(R.id.methods2);
-        methods3=fragView.findViewById(R.id.methods3);
+        //RadioGroups
+        radioGroup1=fragView.findViewById(R.id.radioGroup);
+        radioGroup2=fragView.findViewById(R.id.radioGroup2);
+        radioGroup3=fragView.findViewById(R.id.radioGroup3);
+
+        //RadioButtons (I have to set the onclicks manually, onclick through xml takes me to second activity, can't be done
+        radioButonOne=fragView.findViewById(R.id.pace_one);
+        radioButonOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPace= radioButonOne.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonOne.getText(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+        radioButonTwo=fragView.findViewById(R.id.pace_two);
+        radioButonTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPace= radioButonTwo.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonTwo.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonThree=fragView.findViewById(R.id.pace_three);
+        radioButonThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPace= radioButonThree.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonThree.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonFour=fragView.findViewById(R.id.pace_four);
+        radioButonFour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPace= radioButonFour.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonFour.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonFive=fragView.findViewById(R.id.pace_five);
+        radioButonFive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPace= radioButonFive.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonFive.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonSix=fragView.findViewById(R.id.util_one);
+        radioButonSix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUtilization=radioButonSix.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonSix.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonSeven=fragView.findViewById(R.id.util_two);
+        radioButonSeven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUtilization= radioButonSeven.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonSeven.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonEight=fragView.findViewById(R.id.util_three);
+        radioButonEight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUtilization= radioButonEight.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonEight.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonNine=fragView.findViewById(R.id.util_four);
+        radioButonNine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUtilization= radioButonNine.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonNine.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonTen=fragView.findViewById(R.id.util_five);
+        radioButonTen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mUtilization= radioButonTen.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButonTen.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButoneleven=fragView.findViewById(R.id.methods_one);
+        radioButoneleven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMethods= radioButoneleven.getText().toString();
+                Toast.makeText(secondActivity, "Selected: "+radioButoneleven.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonTwelve=fragView.findViewById(R.id.methods_two);
+        radioButonTwelve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMethods= radioButonTwelve.getText().toString();
+
+                Toast.makeText(secondActivity, "Selected: "+radioButonTwelve.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonThirteen=fragView.findViewById(R.id.methods_three);
+        radioButonThirteen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMethods= radioButonThirteen.getText().toString();
+
+                Toast.makeText(secondActivity, "Selected: "+radioButonThirteen.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonFourteen=fragView.findViewById(R.id.methods_four);
+        radioButonFourteen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMethods= radioButonFourteen.getText().toString();
+
+                Toast.makeText(secondActivity, "Selected: "+radioButonThirteen.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+        radioButonFifteen=fragView.findViewById(R.id.methods_five);
+        radioButonFifteen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mMethods= radioButonFifteen.getText().toString();
+
+                Toast.makeText(secondActivity, "Selected: "+radioButonFifteen.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+        //clickListener for radio buttons
+
 
         //Button and clicklistener
         summary=fragView.findViewById(R.id.summary);
@@ -220,8 +352,9 @@ public class PrefMethodsFragment extends Fragment {
                 CharSequence input7=feedback1.getText();
                 CharSequence input8=feedback2.getText();
                 CharSequence input9=feedback3.getText();
+                notes = extraNotes.getText().toString();
                 listener.onInputSent(input1, input2,input3,input4,input5,input6,input7,input8
-                ,input9,selections,mPace,mUtilization,mMethods);
+                ,input9,selections,mPace,mUtilization,mMethods,notes);
 
                 System.out.println("feedback text: "+feedback1.getText().toString()+","+feedback2.getText().toString()+","+feedback3.getText().toString());
 
@@ -241,21 +374,6 @@ public class PrefMethodsFragment extends Fragment {
         adv2.setOnClickListener(selectedItem);
         adv3.setOnClickListener(selectedItem);
 
-        pace1.setOnClickListener(selectedItem);
-        pace2.setOnClickListener(selectedItem);
-        pace3.setOnClickListener(selectedItem);
-        pace4.setOnClickListener(selectedItem);
-        pace5.setOnClickListener(selectedItem);
-
-        util1.setOnClickListener(selectedItem);
-        util2.setOnClickListener(selectedItem);
-        util3.setOnClickListener(selectedItem);
-        util4.setOnClickListener(selectedItem);
-        util5.setOnClickListener(selectedItem);
-
-        methods1.setOnClickListener(selectedItem);
-        methods2.setOnClickListener(selectedItem);
-        methods3.setOnClickListener(selectedItem);
 
 
 
@@ -379,141 +497,7 @@ public class PrefMethodsFragment extends Fragment {
                         selections.remove(""+am3.getText());
                     }
                     break;
-                case R.id.pace1:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mPace=paceTxt1.getText().toString();
-                    }else{
 
-                    }
-                    break;
-                case R.id.pace2:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mPace=paceTxt2.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.pace3:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mPace=paceTxt3.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.pace4:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mPace=paceTxt4.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.pace5:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mPace=paceTxt5.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.util1:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mUtilization= utilTxt1.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.util2:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mUtilization= utilTxt2.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.util3:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mUtilization= utilTxt3.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.util4:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mUtilization= utilTxt4.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.util5:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mUtilization= utilTxt5.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.methods1:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mMethods=methodsTxt1.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.methods2:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mMethods=methodsTxt2.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.methods3:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mMethods=methodsTxt3.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.methods4:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mMethods=methodsTxt4.getText().toString();
-                    }else{
-
-                    }
-                    break;
-                case R.id.methods5:
-                    //if the user checks it, we add the string that
-                    //corresponds to the checkbox to the list
-                    if(checked){
-                        mMethods=methodsTxt5.getText().toString();
-                    }else{
-
-                    }
-                    break;
 
             }
 
@@ -521,4 +505,31 @@ public class PrefMethodsFragment extends Fragment {
 
         }
     };
+
+    public void checkedButton1(View v){
+         radioId1=radioGroup1.getCheckedRadioButtonId();
+
+        radioButton1=getView().findViewById(radioId1);
+
+        Toast.makeText(secondActivity, "Selected: "+radioButton1.getText(), Toast.LENGTH_SHORT).show();
+
+    }
+    public void checkedButton2(View v){
+        radioId2=radioGroup2.getCheckedRadioButtonId();
+
+        radioButton2=getView().findViewById(radioId2);
+
+        Toast.makeText(secondActivity, "Selected: "+radioButton2.getText(), Toast.LENGTH_SHORT).show();
+
+
+    }
+    public void checkedButton3(View v){
+        radioId3=radioGroup3.getCheckedRadioButtonId();
+
+        radioButton2=getView().findViewById(radioId3);
+
+        Toast.makeText(secondActivity, "Selected: "+radioButton3.getText(), Toast.LENGTH_SHORT).show();
+
+
+    }
 }
